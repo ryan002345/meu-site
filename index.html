@@ -7,6 +7,30 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        .whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+        /* MENU MOBILE FUNCIONANDO */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: #ff6b9d;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+}
         * {
             margin: 0;
             padding: 0;
@@ -353,7 +377,7 @@
     </style>
 </head>
 <body>
-    <a href="https://wa.me/5511999999999" class="whatsapp">💬</a>
+    <a href="https://wa.me/551193318156" class="whatsapp">💬</a>
     <!-- Header -->
     <header>
         <nav>
@@ -532,7 +556,24 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+      <script>
+// ===== SCROLL SUAVE (CORRIGIDO) =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href'))
+        .scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// ===== MENU HAMBÚRGUER =====
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+</script>
